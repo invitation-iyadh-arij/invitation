@@ -238,19 +238,14 @@ src="https://maps.google.com/maps?hl=fr&q=Salle+des+Fetes+Mozart&t=&z=15&ie=UTF8
 </audio>
 
 <script>
-  // gold dust particles
-  const dust = document.getElementById('dust');
-  <script>
   const bgAudio = document.getElementById('bg-audio');
   
-  // La musique s'arrête si tu changes d'onglet ou réduis la page
   document.addEventListener('visibilitychange', function() {
     if (document.hidden && bgAudio) {
       bgAudio.pause();
     }
   });
 
-  // La musique s'arrête si tu fermes complètement la page
   window.addEventListener('beforeunload', function() {
     if (bgAudio) {
       bgAudio.pause();
