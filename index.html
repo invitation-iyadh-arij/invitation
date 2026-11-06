@@ -236,22 +236,6 @@ src="https://maps.google.com/maps?hl=fr&q=Salle+des+Fetes+Mozart&t=&z=15&ie=UTF8
 <audio id="bg-audio" loop>
   <source src="wedding-music.mp3" type="audio/mpeg">
 </audio>
-
-<script>
-  const bgAudio = document.getElementById('bg-audio');
-  
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden && bgAudio) {
-      bgAudio.pause();
-    }
-  });
-
-  window.addEventListener('beforeunload', function() {
-    if (bgAudio) {
-      bgAudio.pause();
-    }
-  });
-</script>
   for(let i=0;i<26;i++){
     const s = document.createElement('span');
     s.style.left = Math.random()*100 + 'vw';
