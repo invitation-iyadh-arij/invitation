@@ -236,6 +236,7 @@ src="https://maps.google.com/maps?hl=fr&q=Salle+des+Fetes+Mozart&t=&z=15&ie=UTF8
 <audio id="bg-audio" loop>
   <source src="wedding-music.mp3" type="audio/mpeg">
 </audio>
+  <script>
   for(let i=0;i<26;i++){
     const s = document.createElement('span');
     s.style.left = Math.random()*100 + 'vw';
@@ -260,6 +261,21 @@ src="https://maps.google.com/maps?hl=fr&q=Salle+des+Fetes+Mozart&t=&z=15&ie=UTF8
     if(audio.paused){ audio.play(); btn.classList.add('playing'); }
     else{ audio.pause(); btn.classList.remove('playing'); }
   }
+    // Stop music when leaving the invitation
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        const audio = document.getElementById('bg-audio');
+        const btn = document.getElementById('music-btn');
+
+        audio.pause();
+        btn.classList.remove('playing');
+    }
+});
+
+window.addEventListener('pagehide', () => {
+    const audio = document.getElementById('bg-audio');
+    audio.pause();
+});
 
   // scroll reveal
   const io = new IntersectionObserver((entries)=>{
